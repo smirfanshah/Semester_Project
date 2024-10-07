@@ -1,5 +1,5 @@
 const ListingCard = ({ image, title, type, guests, price, rating }) => (
-  <div className="border rounded-lg overflow-hidden shadow-lg">
+  <div className="border rounded-lg overflow-hidden shadow-lg w-64"> {/* Set a fixed width */}
     <img src={image} alt={title} className="w-full h-48 object-cover" />
     <div className="p-4">
       <h3 className="text-lg font-bold">{title}</h3>
@@ -10,4 +10,4 @@ const ListingCard = ({ image, title, type, guests, price, rating }) => (
   </div>
 );
 
-  export default ListingCard;
+export default ListingCard;

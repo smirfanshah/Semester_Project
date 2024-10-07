@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-const categories = ['Beachfront', 'Cabins', 'Trending', 'Entire homes'];
+const categories = ['Beachfront', 'Cabins', 'Trending', 'Entire homes', 'National Parks', 'New','Amazing Values', 'Cabins', 'Trending', 'Entire homes', 'National Parks', 'New','Amazing Values', 'Cabins', 'Trending', 'Entire homes', 'National Parks', 'New','Amazing Values'];
 
 const Categories = () => {
   const [activeCategory, setActiveCategory] = useState('');
@@ -12,12 +12,13 @@ const Categories = () => {
   };
 
   return (
-    <div className="flex overflow-x-scroll space-x-4 mt-4 p-4">
+    <div className="flex overflow-x-auto space-x-4 mt-4 p-4 scrollbar-thin">
       {categories.map((category) => (
         <button
           key={category}
-          className={`py-2 px-4 rounded ${category === activeCategory ? 'bg-blue-500 text-white' : 'bg-gray-200'} hover:bg-blue-400`}
-          onClick={() => setActiveCategory(category)}
+                  className={`flex flex-col items-center cursor-pointer p-2 rounded-lg transition duration-300 ${
+                    category === activeCategory ? 'bg-blue-500 text-white' : 'bg-gray-200'}hover:bg-blue-400`}
+                    onClick={() => setActiveCategory(category)}
         >
           {category}
         </button>

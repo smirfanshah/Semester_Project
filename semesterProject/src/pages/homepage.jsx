@@ -18,24 +18,25 @@ const HomePage = () => {
   return (
     <div>
       <Navbar />
-      <SearchBar />
-      <Categories />
-      <div className="listings-grid">
-        {listings.map((listing) => (
-          <ListingCard
-            key={listing.id}
-            image={listing.image}
-            title={listing.title}
-            type={listing.type}
-            guests={listing.guests}
-            price={listing.price}
-            rating={listing.rating}
-          />
-        ))}
+      <div className="pt-40"> {/* Add padding to the top */}
+        <Categories />
+        <h1 className="text-2xl font-bold p-4">Available Listings</h1>
+        <div className="flex flex-wrap justify-start gap-8 p-2">
+          {listings.map(({ id, image, title, type, guests, price, rating }) => (
+            <ListingCard
+              key={id}
+              image={image}
+              title={title}
+              type={type}
+              guests={guests}
+              price={price}
+              rating={rating}
+            />
+          ))}
+        </div>
+        <Footer />
       </div>
-      <Footer />
     </div>
-  );
-};
+  );};
 
 export default HomePage;
