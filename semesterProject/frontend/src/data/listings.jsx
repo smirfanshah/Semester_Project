@@ -1,7 +1,7 @@
 const listings = [
     {
       id: 1,
-      image: '/images/property1.jpg',
+      image: 'https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTE3NzY4MTU2OTMzMjYwMTQ5OQ%3D%3D/original/7fe72e51-f9b5-4702-b71c-4b6c2134507b.jpeg?im_w=1440&im_q=highq',
       title: 'Beachfront Villa',
       type: 'Entire home',
       guests: 4,
@@ -10,7 +10,7 @@ const listings = [
     },
     {
       id: 2,
-      image: '/images/property2.jpg',
+      image: 'https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTEzMTA4OTQ5ODA0MDcwMTE4Mw%3D%3D/original/a766e0e9-1e6f-4b88-b8d5-ce12375c6de8.png?im_w=1440&im_q=highq',
       title: 'Cozy Cabin',
       type: 'Private room',
       guests: 2,
@@ -19,7 +19,7 @@ const listings = [
     },
     {
       id: 3,
-      image: '/images/property3.jpg',
+      image: 'https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTE4NzE3Nzg1NDA2MjM5NzY2NQ%3D%3D/original/6989d581-3f67-4cd9-8cb6-5f5c226aedc6.png?im_w=1440&im_q=highq',
       title: 'Modern Apartment',
       type: 'Entire home',
       guests: 3,
@@ -28,7 +28,7 @@ const listings = [
     },
     {
       id: 4,
-      image: '/images/property4.jpg',
+      image: 'https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTEzMTA4NzY0ODgzNzUzNjQzNw%3D%3D/original/1077cfcd-29d5-42b7-adab-19e0b620e492.jpeg?im_w=1440&im_q=highq',
       title: 'Rustic Lodge',
       type: 'Entire home',
       guests: 6,
@@ -37,7 +37,7 @@ const listings = [
     },
     {
       id: 5,
-      image: '/images/property5.jpg',
+      image: 'https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTE3NzY2MTYzNDg4MjE2ODY1Nw%3D%3D/original/a332d020-4315-4f63-af71-444d46474939.png?im_w=1440&im_q=highq',
       title: 'Charming Studio',
       type: 'Private room',
       guests: 2,
@@ -46,7 +46,7 @@ const listings = [
     },
     {
       id: 6,
-      image: '/images/property6.jpg',
+      image: 'https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTEyNjIzMTk3NDU3MjE4Nzg2NA%3D%3D/original/f4cbe542-3ce0-4c6f-a8f1-d2120c1b2420.jpeg?im_w=1440&im_q=highq',
       title: 'Luxury Penthouse',
       type: 'Entire home',
       guests: 5,

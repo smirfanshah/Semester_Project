@@ -7,6 +7,10 @@ body,
 :root{
   height: 100%;
 }
+body {
+  @apply m-4; /* This will apply a margin of 1rem (16px) on all sides */
+}
+
 /* Add this to your global CSS file (e.g., styles.css) */
 
 .scrollbar-thin {
@@ -15,7 +19,11 @@ body,
 
 .scrollbar-thin::-webkit-scrollbar {
   width: 5px; /* Adjust the width for vertical scrollbar */
-  height: 2px; /* Adjust the height for horizontal scrollbar */
+  height: 1px; /* Adjust the height for horizontal scrollbar */
+
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none; /* Safari and Chrome */
 }
 
 .scrollbar-thin::-webkit-scrollbar-track {

@@ -20,8 +20,8 @@ const HomePage = () => {
       <Navbar />
       <div className="pt-40"> {/* Add padding to the top */}
         <Categories />
-        <h1 className="text-2xl font-bold p-4">Available Listings</h1>
-        <div className="flex flex-wrap justify-start gap-8 p-2">
+        <h1 className="text-2xl font-bold p-4">Past Experiences</h1>
+        <div className="flex flex-wrap justify-start gap-3 p-1">
           {listings.map(({ id, image, title, type, guests, price, rating }) => (
             <ListingCard
               key={id}
