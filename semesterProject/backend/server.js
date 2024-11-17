@@ -1,12 +1,26 @@
+const express= require("express");
+const cors = require("cors");
+const app = express();
+const PORT= 5000;
+
+//MiddleWare
+app.use(cors());
+app.use(express.json());
+//
+
 const listings = [
     {
       id: 1,
       image: 'https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTE3NzY4MTU2OTMzMjYwMTQ5OQ%3D%3D/original/7fe72e51-f9b5-4702-b71c-4b6c2134507b.jpeg?im_w=1440&im_q=highq',
-      title: 'Beachfront Villa',
+      title: 'Kahna Villa',
       type: 'Entire home',
       guests: 4,
       price: 150,
-      rating: 4.8
+      rating: 4.8,
+      amenities: ['WiFi', 'Pool', 'Kitchen', 'Parking'],
+      bedrooms: 2,
+      bathrooms: 2,
+      location: 'California',
     },
     {
       id: 2,
@@ -15,7 +29,11 @@ const listings = [
       type: 'Private room',
       guests: 2,
       price: 85,
-      rating: 4.7
+      rating: 4.7,
+      amenities: ['WiFi', 'Heating', 'Kitchen'],
+      bedrooms: 1,
+      bathrooms: 1,
+      location: 'Oregon',
     },
     {
       id: 3,
@@ -24,7 +42,11 @@ const listings = [
       type: 'Entire home',
       guests: 3,
       price: 120,
-      rating: 4.5
+      rating: 4.5,
+      amenities: ['WiFi', 'TV', 'Kitchen'],
+      bedrooms: 1,
+      bathrooms: 1,
+      location: 'New York City',
     },
     {
       id: 4,
@@ -33,7 +55,11 @@ const listings = [
       type: 'Entire home',
       guests: 6,
       price: 200,
-      rating: 4.9
+      rating: 4.9,
+      amenities: ['WiFi', 'Fireplace', 'BBQ'],
+      bedrooms: 3,
+      bathrooms: 2,
+      location: 'Colorado',
     },
     {
       id: 5,
@@ -42,7 +68,11 @@ const listings = [
       type: 'Private room',
       guests: 2,
       price: 90,
-      rating: 4.6
+      rating: 4.6,
+      amenities: ['WiFi', 'Kitchen', 'Coffee Maker'],
+      bedrooms: 1,
+      bathrooms: 1,
+      location: 'Chicago',
     },
     {
       id: 6,
@@ -51,7 +81,11 @@ const listings = [
       type: 'Entire home',
       guests: 5,
       price: 300,
-      rating: 4.7
+      rating: 4.7,
+      amenities: ['WiFi', 'Gym', 'Pool', 'Concierge'],
+      bedrooms: 3,
+      bathrooms: 2,
+      location: 'Miami',
     },
     {
       id: 7,
@@ -60,7 +94,11 @@ const listings = [
       type: 'Entire home',
       guests: 8,
       price: 250,
-      rating: 4.6
+      rating: 4.6,
+      amenities: ['WiFi', 'Fireplace', 'BBQ'],
+      bedrooms: 4,
+      bathrooms: 3,
+      location: 'Texas',
     },
     {
       id: 8,
@@ -69,7 +107,11 @@ const listings = [
       type: 'Entire home',
       guests: 4,
       price: 180,
-      rating: 4.8
+      rating: 4.8,
+      amenities: ['WiFi', 'TV', 'Kitchen', 'Washer/Dryer'],
+      bedrooms: 2,
+      bathrooms: 1,
+      location: 'San Francisco',
     },
     {
       id: 9,
@@ -78,7 +120,11 @@ const listings = [
       type: 'Private room',
       guests: 3,
       price: 110,
-      rating: 4.5
+      rating: 4.5,
+      amenities: ['WiFi', 'Kitchen', 'Heating'],
+      bedrooms: 1,
+      bathrooms: 1,
+      location: 'Maine',
     },
     {
       id: 10,
@@ -87,7 +133,11 @@ const listings = [
       type: 'Entire home',
       guests: 4,
       price: 130,
-      rating: 4.7
+      rating: 4.7,
+      amenities: ['WiFi', 'Solar Panels', 'Kitchen', 'EV Charger'],
+      bedrooms: 2,
+      bathrooms: 2,
+      location: 'California',
     },
     {
       id: 11,
@@ -96,7 +146,11 @@ const listings = [
       type: 'Entire home',
       guests: 6,
       price: 220,
-      rating: 4.9
+      rating: 4.9,
+      amenities: ['WiFi', 'Fireplace', 'Ski-in/Ski-out'],
+      bedrooms: 3,
+      bathrooms: 2,
+      location: 'Vermont',
     },
     {
       id: 12,
@@ -105,7 +159,11 @@ const listings = [
       type: 'Entire home',
       guests: 3,
       price: 160,
-      rating: 4.6
+      rating: 4.6,
+      amenities: ['WiFi', 'Parking', 'Kitchen'],
+      bedrooms: 2,
+      bathrooms: 1,
+      location: 'Los Angeles',
     },
     {
       id: 13,
@@ -114,7 +172,11 @@ const listings = [
       type: 'Private room',
       guests: 2,
       price: 95,
-      rating: 4.4
+      rating: 4.4,
+      amenities: ['WiFi', 'Heating', 'Kitchen'],
+      bedrooms: 1,
+      bathrooms: 1,
+      location: 'Wyoming',
     },
     {
       id: 14,
@@ -123,7 +185,11 @@ const listings = [
       type: 'Entire home',
       guests: 5,
       price: 280,
-      rating: 4.8
+      rating: 4.8,
+      amenities: ['WiFi', 'Pool', 'Ocean View'],
+      bedrooms: 3,
+      bathrooms: 2,
+      location: 'Hawaii',
     },
     {
       id: 15,
@@ -132,9 +198,32 @@ const listings = [
       type: 'Entire home',
       guests: 10,
       price: 400,
-      rating: 5.0
+      rating: 5.0,
+      amenities: ['WiFi', 'Gym', 'Pool', 'Sauna'],
+      bedrooms: 5,
+      bathrooms: 4,
+      location: 'Boston',
     }
   ];
+
+app.get("/api/listings", (req,res)=>res.json(listings));
+
+app.get("/api/listings/:id", (req,res)=>{
   
-  export default listings;
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
+    const listing= listings.find((l)=>l.id===parseInt(req.params.id));
+
+    if(!listing) return res.status(404).send("Listing not found!!");
+    return res.json(listing);
+});
+
+app.post("/api/bookings",(req,res)=>{
+    const {listingId, checkIn, checkOut, guests}= req.body;
+    res.status(200).send({
+        message: "Booking Confirmed",
+        details: {listingId, checkIn, checkOut, guests},
+    });
+});
+
+app.listen(PORT, () => {
+    console.log(`Server is running on http://localhost:${PORT}`);
+  });

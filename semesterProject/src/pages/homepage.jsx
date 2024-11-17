@@ -4,16 +4,23 @@ import SearchBar from '../components/searchbar';
 import Categories from '../components/categories';
 import ListingCard from '../components/listingCard';
 import Footer from '../components/Footer';
-import listingsData from '../data/listings'; // Import mock data
+// import listingsData from '../data/listings'; // Import mock data
 
 const HomePage = () => {
   const [listings, setListings] = useState([]);
 
   // Fetch data when component mounts
+  // useEffect(() => {
+  //   // Simulate fetching data (could be from an API)
+  //   setListings(listingsData);
+  // }, []);
+
   useEffect(() => {
-    // Simulate fetching data (could be from an API)
-    setListings(listingsData);
+    fetch("http://localhost:5000/api/listings")
+      .then((res) => res.json())
+      .then((data) => setListings(data));
   }, []);
+  
 
   return (
     <div>
@@ -23,8 +30,9 @@ const HomePage = () => {
         <h1 className="text-2xl font-bold p-4">Past Experiences</h1>
         <div className="flex flex-wrap justify-start gap-3 p-1">
           {listings.map(({ id, image, title, type, guests, price, rating }) => (
+            
             <ListingCard
-              key={id}
+              id={id}
               image={image}
               title={title}
               type={type}
