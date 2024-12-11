@@ -17,7 +17,7 @@ createRoot(document.getElementById('root')).render(
       <Routes>
         <Route path="/" element={<HomePage/>}/>
         <Route path="/listings/:id" element={<ListingDetails/>}/>
-        <Route path="/book/:id" element={<BookingPage/>}/>
+        <Route path="/bookings/:id" element={<BookingPage/>}/>
       </Routes>
       }
       </div>

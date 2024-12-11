@@ -29,19 +29,20 @@ const HomePage = () => {
         <Categories />
         <h1 className="text-2xl font-bold p-4">Past Experiences</h1>
         <div className="flex flex-wrap justify-start gap-3 p-1">
-          {listings.map(({ id, image, title, type, guests, price, rating }) => (
-            
+          {listings.map(({ _id, name, images, bedrooms, bathrooms, price, summary }) => (
             <ListingCard
-              id={id}
-              image={image}
-              title={title}
-              type={type}
-              guests={guests}
+              key={_id}
+              id={_id}
+              name={name}
+              images={images}
+              bedrooms={bedrooms}
+              bathrooms={bathrooms}
               price={price}
-              rating={rating}
+              summary={summary}
             />
           ))}
         </div>
+
         <Footer />
       </div>
     </div>
