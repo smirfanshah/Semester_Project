@@ -2,17 +2,19 @@ import { useState } from "react";
 import SearchBar from "./searchbar";
 import { FiMenu, FiUser } from 'react-icons/fi'; // For the search icon
 import { Link } from 'react-router-dom';
+import ProtectedRoute from "./protectedRoute";
+import { useAuth } from "../context/AuthContext";
 const Navbar = () => {
 
   const [isDropdownOpen, setDropdownOpen]=  useState(false);
-  const [isAuthenticated, setAuthenticated]= useState(false);
-
+  // const [isAuthenticated, setAuthenticated]= useState(false);
+  const { isAuthenticated, login, logout } = useAuth();
   const toggleDropdown=()=>{
     setDropdownOpen(!isDropdownOpen);
   }
 
   const handleLogout=()=>{
-    setAuthenticated(false);
+    logout(true);
   }
   return(
   <div className="m-7">
@@ -33,18 +35,16 @@ const Navbar = () => {
         </button>
         {isDropdownOpen &&(
           <div className="absolute top-16 right-4 bg-white shadow-md rounded-md py-2 w-40 z-20">
-            {!isAuthenticated?(
+            {!isAuthenticated ? (
               <>
                 <Link to="/login" className="block px-4 py-2 hover:bg-gray-200">Login</Link>
                 <Link to="/signup" className="block px-4 py-2 hover:bg-gray-200">Sign Up</Link>
-
               </>
-            ):(
+            ) : (
               <>
                 <Link to="/profile" className="block px-4 py-2 hover:bg-gray-200">Profile</Link>
                 <Link to="/bookings" className="block px-4 py-2 hover:bg-gray-200">Bookings</Link>
                 <button onClick={handleLogout} className="block px-4 py-2 hover:bg-gray-200 text-left w-full">Logout</button>
-                
               </>
             )}
           </div>

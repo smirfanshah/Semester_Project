@@ -16,9 +16,22 @@ const HomePage = () => {
   // }, []);
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/listings")
-      .then((res) => res.json())
-      .then((data) => setListings(data));
+    const fetchListings = async () => {
+      try {
+        const response = await fetch("http://localhost:5000/api/listings");
+        const data = await response.json();
+        console.log("Fetched listings data:", data); // Log the fetched data
+        if (Array.isArray(data)) {
+          setListings(data); // Ensure `data` is an array
+        } else {
+          console.error("Fetched data is not an array:", data);
+        }
+      } catch (error) {
+        console.error("Error fetching listings:", error);
+      }
+    };
+  
+    fetchListings();
   }, []);
   
 

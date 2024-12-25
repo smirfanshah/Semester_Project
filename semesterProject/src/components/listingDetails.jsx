@@ -53,11 +53,11 @@ const ListingDetails = () => {
       {/* Amenities Section */}
       <div className="mt-8">
         <h3 className="text-2xl font-semibold text-gray-800">What this place offers:</h3>
-        <ul className="mt-4 list-inside list-disc text-gray-700">
+        <div className="mt-4 flex flex-wrap justify-center">
           {listing.amenities && listing.amenities.map((amenity, index) => (
-            <li key={index}>{amenity}</li>
+            <button key={index} className="bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded mr-2 mb-2">{amenity}</button>
           ))}
-        </ul>
+        </div>
       </div>
 
       {/* Reservation Section */}
@@ -97,7 +97,17 @@ const ListingDetails = () => {
         <div className="mt-6">
           <button
             className="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700"
-            onClick={() => navigate(`/bookings/${id}`)}
+            onClick={() =>
+              navigate(`/bookings/${id}`, {
+                state: {
+                  checkIn: document.getElementById("checkIn").value,
+                  checkOut: document.getElementById("checkOut").value,
+                  guests: document.getElementById("guests").value,
+                  listing,
+                },
+              })
+            }
+            
           >
             Reserve Now
           </button>
@@ -112,14 +122,14 @@ const ListingDetails = () => {
             listing.reviews.slice(0, 5).map((review, index) => (
               <div key={index} className="bg-gray-100 p-4 rounded-lg shadow">
                 <p className="text-gray-900 font-semibold">{review.reviewer_name}</p>
-                <p className="text-gray-600">"{review.comments}"</p>
+                <p className="text-gray-600 text-ellipsis overflow-hidden whitespace-normal h-12">{review.comments}</p>
                 <p className="text-sm text-gray-500">Reviewed on {formatDate(review.date)}</p>
               </div>
             ))
           ) : (
             <p className="text-gray-600">No reviews yet</p>
           )}
-        </div>
+        </div>  
       </div>
     </div>
   );
